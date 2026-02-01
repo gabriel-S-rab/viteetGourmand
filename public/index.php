@@ -43,7 +43,7 @@
  </header>
     <main>
         <div class="container-fluid vw-100 vh-100">
-          <div class="container-fluid w-100 d-flex justify-content-center align-items-center" style="height: 400px; overflow: hidden;">
+          <div class="container-fluid px-0 w-100 d-flex justify-content-center align-items-center" style="height: 400px; overflow: hidden;">
             <h2 style="position: absolute; color: white;">Bienvenue</h2>
 
           <img src="../img/img1.jpg" class="img-fluid  w-100 h-100" style="object-fit: cover;" alt="...">
