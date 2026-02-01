@@ -7,6 +7,7 @@
         <title>Vite&Gourmand</title>
         <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
         <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+     
     </head>
 <body>
     <header>
@@ -41,30 +42,18 @@
     </nav>
  </header>
     <main>
-        <div class="container-fluid w-100 vh-100">
-          <h1>je suis la page acceuil </h1>
-          <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+        <div class="container-fluid vw-100 vh-100">
+          <div class="container-fluid w-100" style="height: 400px; overflow: hidden;">
+          <img src="../img/img1.jpg" class="img-fluid  w-100 h-100" style="object-fit: cover;" alt="...">
+          </div>
+           <div class="grid">
+        <div class="onGrid1">1</div>
+        <div class="onGrid2">2</div>
+        <div class="onGrid3">3</div>
+        <div class="onGrid4">4</div>
     </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
         </div>
+ 
  
     </main>
        <footer class="bg-dark text-white text-center" >
