@@ -5,14 +5,96 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Vite&Gourmand</title>
-        <link rel="" href=""> 
-        <script src="" defer></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     </head> 
     <body> 
-     <header></header>
-     <main></main> 
-     <footer></footer>
+          <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #2E2E2E;" data-bs-theme="light">
+  <div class="container-fluid">
+<img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+    <a class="navbar-brand mw-2">Navbar</a>
+         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.php">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="carte.php">La carte</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Mon compte</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.php">Connexion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Deconnexion</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="register.php">inscription</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.php">Contact</a>
+                  </li>
+                </ul>
+         </div>
+    </nav>
+ </header>
+    <main>
+        <div class="container-fluid w-100 vh-100 text-center">
+          <h4 class="m-4">Inscription</h4>
+          <div class="container w-25 h-50 top-50 align-content-center">
+            <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">adresse Email :</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder ="entrer votre email">
+    <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec qui que ce soit.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">prenom :</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="entrer votre prenom">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">nom :</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="entrer votre nom">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">pseudo :</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="entrer votre pseudo">
+  </div>
+  <!--ajout de l'age pour control (mineur/majeur)-->
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">mot de passe :</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="entrer votre mot de passe">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">confirmation mot de passe :</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="entrer a nouveau votre mot de passe">
+  </div>
+  <button type="submit" class="btn btn-primary">Inscription</button>
+</form>
+          </div>
+        </div>
+     </main> 
+     <footer class="bg-dark text-white text-center" >
+        <div class= "row">
+            <div class="col-12">
+            <h3>nos horaires</h3>
+            <p>du mardi au dimanche 12h00 - 14h00   18h00 - 23h00</p>
+         </div>
+         <div clas="col-6"> 
+            <p>Adresse <br>
+               adresse <br>
+               adresse <br>
+            </p>
+         </div>
+         <div class= "col-6">
+            <p>le mail</p>
+         </div>
+          <div class= "col-6">
+            <p>numero de telephone</p>
+         </div>
+       </div>
+     </footer>
     </body>
 </html>
