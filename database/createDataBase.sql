@@ -1,0 +1,129 @@
+CREATE DATABASE  vite_et_gourmand; 
+USE vite_et_gourmand ;
+
+
+
+
+CREATE TABLE regime 
+(
+    regime_id INT PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(50) NOT NULL
+   
+);  
+
+
+CREATE TABLE theme 
+(
+    theme_id INT PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(50) NOT NULL 
+); 
+
+
+CREATE TABLE menu 
+(
+    menu_id INT PRIMARY KEY AUTO_INCREMENT, 
+    titre VARCHAR(50) NOT NULL, 
+    nombre_personne_minimum INT NOT NULL, 
+    prix_par_personne DECIMAL(10,2) NOT NULL,  
+    regime INT NOT NULL, 
+    description TEXT NOT NULL, 
+    quantite_restante INT NOT NULL , 
+    theme INT NOT NULL, 
+
+    CONSTRAINT regime_info
+    FOREIGN KEY (regime) REFERENCES regime(regime_id),
+    CONSTRAINT theme_info
+    FOREIGN KEY (theme) REFERENCES theme(theme_id)
+); 
+
+
+
+
+CREATE TABLE plat 
+(
+    plat_id INT PRIMARY KEY AUTO_INCREMENT, 
+    titre_plat VARCHAR(50) NOT NULL, 
+    photo LONGBLOB
+) ; 
+
+
+CREATE TABLE allergene 
+(
+    allergene_id INT  PRIMARY KEY AUTO_INCREMENT, 
+    libelle VARCHAR(50) NOT NULL
+); 
+ 
+
+CREATE TABLE commande 
+(
+    id_commande INT PRIMARY KEY AUTO_INCREMENT,
+    numero_commande VARCHAR(50) NOT NULL, 
+    date_commande DATE NOT NULL, 
+    date_prestation DATE NOT NULL,
+    heure_livraison TIME NOT NULL , 
+    prix_menu DOUBLE NOT NULL, 
+    nombre_personne INT NOT NULL , 
+    prix_livraison DOUBLE NOT NULL , 
+    status_commande VARCHAR(50) NOT NULL ,
+    pret_materiel BOOLEAN NOT NULL, 
+    restitution_materiel BOOLEAN NOT NULL 
+
+); 
+
+CREATE TABLE role 
+(
+    role_id INT PRIMARY KEY AUTO_INCREMENT, 
+    libelle VARCHAR(50)
+);
+
+
+CREATE TABLE utilisateur 
+(
+utilisateur_id INT PRIMARY KEY AUTO_INCREMENT, 
+email VARCHAR(50) NOT NULL, 
+password VARCHAR(255) NOT NULL, 
+prenom VARCHAR(50) NOT NULL, 
+nom VARCHAR(50) NOT NULL, 
+date_naissance DATE NOT NULL, 
+telephone VARCHAR(50) NOT NULL,
+ville VARCHAR(50) NOT NULL, 
+pays VARCHAR(50) NOT NULL, 
+adresse_postale VARCHAR(50) NOT NULL, 
+role INT NOT NULL, 
+
+
+CONSTRAINT role_info 
+FOREIGN KEY (role) REFERENCES role(role_id)
+);
+
+CREATE TABLE avis 
+(
+    avis_id INT PRIMARY KEY AUTO_INCREMENT, 
+    utilisateur_id INT NOT NULL, 
+    note INT NOT NULL CHECK (note BETWEEN 1 and 5), 
+    description VARCHAR(250) NOT NULL, 
+    date_avis DATE NOT NULL,
+    status VARCHAR(50) NOT NULL, 
+
+    CONSTRAINT avis_info
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(utilisateur_id)
+); 
+
+
+
+CREATE TABLE horaire 
+(
+    horaire_id INT PRIMARY KEY, 
+    jour VARCHAR(50) NOT NULL , 
+    heure_ouverture TIME NOT NULL, 
+    heure_fermeture TIME NOT NULL
+); 
+-- remplir les horaires 
+CREATE TABLE message 
+(
+    id INT PRIMARY KEY AUTO_INCREMENT, 
+    prenom VARCHAR(50) NOT NULL, 
+    nom VARCHAR(50) NOT NULL,
+    mail VARCHAR(50) NOT NULL, 
+    message TEXT NOT NULL 
+); 
