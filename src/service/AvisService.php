@@ -4,12 +4,20 @@ require '../repository/AvisRepository.php';
 
 class AvisService {
 
-public function __construct(){} 
+private AvisRepository $avisRepository;
 
-public function AjouterAvisService(): void 
+public function __construct(AvisRepository $avisRepository){
+    $this->avisRepository = $avisRepository;
+} 
+
+public function ajouterAvisService(int $id, string $dateAvis, string $description, string $note): void 
 {
-    $AvisRepository = new AvisRepository(); 
-    $AvisRepository->ajouterAvisRepository();
+    $status = "non valider";
+    $this->avisRepository->ajouterAvisRepository($id, $dateAvis, $description, $note , $status);
+}
+
+public function supprimerAvisService(int $id): void {
+    $this->avisRepository->supprimerAvisService($id);
 }
     
 }

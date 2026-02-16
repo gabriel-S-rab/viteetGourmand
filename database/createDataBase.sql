@@ -25,15 +25,15 @@ CREATE TABLE menu
     titre VARCHAR(50) NOT NULL, 
     nombre_personne_minimum INT NOT NULL, 
     prix_par_personne DECIMAL(10,2) NOT NULL,  
-    regime INT NOT NULL, 
+    regime_id INT NOT NULL, 
     description TEXT NOT NULL, 
     quantite_restante INT NOT NULL , 
-    theme INT NOT NULL, 
+    theme_id INT NOT NULL, 
 
     CONSTRAINT regime_info
-    FOREIGN KEY (regime) REFERENCES regime(regime_id),
+    FOREIGN KEY (regime_id) REFERENCES regime(regime_id),
     CONSTRAINT theme_info
-    FOREIGN KEY (theme) REFERENCES theme(theme_id)
+    FOREIGN KEY (theme_id) REFERENCES theme(theme_id)
 ); 
 
 
@@ -43,7 +43,7 @@ CREATE TABLE plat
 (
     plat_id INT PRIMARY KEY AUTO_INCREMENT, 
     titre_plat VARCHAR(50) NOT NULL, 
-    photo LONGBLOB
+    photo_chemin TEXT
 ) ; 
 
 
@@ -57,7 +57,7 @@ CREATE TABLE allergene
 CREATE TABLE commande 
 (
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
-    numero_commande VARCHAR(50) NOT NULL, 
+    numero_commande VARCHAR(12) NOT NULL, 
     date_commande DATE NOT NULL, 
     date_prestation DATE NOT NULL,
     heure_livraison TIME NOT NULL , 
@@ -102,7 +102,7 @@ CREATE TABLE avis
     utilisateur_id INT NOT NULL, 
     note INT NOT NULL CHECK (note BETWEEN 1 and 5), 
     description VARCHAR(250) NOT NULL, 
-    date_avis DATE NOT NULL,
+    date_avis VARCHAR(20) NOT NULL,
     status VARCHAR(50) NOT NULL, 
 
     CONSTRAINT avis_info
