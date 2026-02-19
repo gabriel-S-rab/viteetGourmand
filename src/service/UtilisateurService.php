@@ -1,6 +1,6 @@
 <?php 
 
-require "../repository/UtilisateurRepository.php";
+require_once __DIR__."/../repository/UtilisateurRepository.php";
 
 class UtilisateurService{ 
 
@@ -10,13 +10,13 @@ public function __construct(UtilisateurRepository $utilisateurRepository){
 $this->utilisateurRepository = $utilisateurRepository;
 }
 
-public function ajouterUtilisateurService(string $adressePostal,string $dateNaissance,string $email,string $nom,string $passwordHtml,
-                                          string $pays,string $prenom,string $telephone,string $ville): void {
+public function ajouterUtilisateurService(string $rue,string $dateNaissance,string $email,string $nom,string $passwordHtml,
+                                          string $pays,string $prenom,string $telephone,string $ville, string $codePostal): void {
        
     
        $role = 1;
-        $adressePostal = htmlspecialchars($adressePostal); 
-       if($adressePostal == "")
+        $rue = htmlspecialchars($rue); 
+       if($rue == "")
         throw new Exception(" l'adresse est vide"); 
        $dateNaissance = htmlspecialchars($dateNaissance); 
        if($dateNaissance == "")
@@ -38,7 +38,7 @@ public function ajouterUtilisateurService(string $adressePostal,string $dateNais
        if($prenom == "")
         throw new Exception(" le prenom est vide"); 
        $role= htmlspecialchars($role); 
-       if($role == "")
+      if(!in_array($role, [1,2,3]))
         throw new Exception("le role est vide"); 
        $telephone = htmlspecialchars($telephone); 
        if($telephone == "")
@@ -46,9 +46,13 @@ public function ajouterUtilisateurService(string $adressePostal,string $dateNais
        $ville = htmlspecialchars($ville); 
        if($ville =="")
         throw new Exception(" la ville est vide");
+        $codePostal = htmlspecialchars($codePostal);
+        if($codePostal == "")
+            throw new Exception(" le code postal est vide");
 
-      
-      $this->utilisateurRepository->ajouterUtilisateurRepository($adressePostal,$dateNaissance,$email,$nom,$password,$pays,$prenom,$role,$telephone,$ville);
+      if($this->utilisateurRepository->emailExiste($email))
+    throw new Exception("Cet email est déjà utilisé");
+      $this->utilisateurRepository->ajouterUtilisateurRepository($rue,$dateNaissance,$email,$nom,$password,$pays,$prenom,$role,$telephone,$ville,$codePostal);
 }
 
 public function supprimerUtilisateurService(int $id){

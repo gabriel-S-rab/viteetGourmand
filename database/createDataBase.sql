@@ -76,25 +76,30 @@ CREATE TABLE role
     libelle VARCHAR(50)
 );
 
+INSERT INTO role(libelle) VALUES ("utilisateur"),("employer"),("administrateur");
 
 CREATE TABLE utilisateur 
 (
 utilisateur_id INT PRIMARY KEY AUTO_INCREMENT, 
-email VARCHAR(50) NOT NULL, 
-password VARCHAR(255) NOT NULL, 
-prenom VARCHAR(50) NOT NULL, 
-nom VARCHAR(50) NOT NULL, 
-date_naissance DATE NOT NULL, 
-telephone VARCHAR(50) NOT NULL,
-ville VARCHAR(50) NOT NULL, 
-pays VARCHAR(50) NOT NULL, 
-adresse_postale VARCHAR(50) NOT NULL, 
-role INT NOT NULL, 
+email VARCHAR(50) , 
+password VARCHAR(255) , 
+prenom VARCHAR(50) , 
+nom VARCHAR(50) , 
+date_naissance DATE , 
+telephone VARCHAR(50) ,
+ville VARCHAR(50) , 
+pays VARCHAR(50) , 
+rue VARCHAR(50) , 
+code_postal VARCHAR(5) ,
+role INT , 
 
 
 CONSTRAINT role_info 
 FOREIGN KEY (role) REFERENCES role(role_id)
 );
+
+
+
 
 CREATE TABLE avis 
 (

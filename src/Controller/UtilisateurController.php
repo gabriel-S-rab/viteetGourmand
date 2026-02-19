@@ -1,6 +1,6 @@
 <?php 
 
-require "../service/UtilisateurService.php"; 
+require_once __DIR__."/../service/UtilisateurService.php"; 
 
 class UtilisateurController{
 
@@ -12,13 +12,13 @@ $this->utilisateurService = $utilisateurService;
 
 
 public function ajoutUtilisateurController(): void {
-if($_SESSION["csrfToken"]==""/*a modif */){
+// if($_SESSION["csrfToken"]==""/*a modif */){
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     if(isset($_POST["newUtilisateur"])){
     if($_POST["newUtilisateur"]=="newUtilisateur"){
       try 
       {
-       $adressePostal = trim($_POST["adressePostal"]); 
+       $rue = trim($_POST["rue"]); 
        $dateNaissance = $_POST["dateNaissance"]; 
        $email = trim($_POST["email"]); 
        $nom = trim($_POST["nom"]); 
@@ -27,8 +27,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
        $prenom = trim($_POST["prenom"]);
        $telephone = $_POST["telephone"]; 
        $ville = trim($_POST["ville"]); 
-      
-        $this->utilisateurService->ajouterUtilisateurService($adressePostal,$dateNaissance,$email,$nom,$passwordHtml,$pays,$prenom,$telephone,$ville); 
+       $codePostal = trim($_POST["codePostal"]);
+        $this->utilisateurService->ajouterUtilisateurService($rue,$dateNaissance,$email,$nom,$passwordHtml,$pays,$prenom,$telephone,$ville,$codePostal); 
       }
     catch(Exception $e){
         echo "erreur lors de l'ajout d'un nouvelle utilisateur".$e->getMessage();
@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     }
   }
- }
+// }
 }
 
 

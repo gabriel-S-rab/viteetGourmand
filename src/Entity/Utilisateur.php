@@ -1,7 +1,7 @@
 <?php
 
 class Utilisateur {
-    private string $adressePostal; 
+    private string $rue; 
     private DateTime $dateNaissance; 
     private string $email; 
     private string $nom; 
@@ -12,12 +12,15 @@ class Utilisateur {
     private string $telephone; 
     private int $id; 
     private string $ville; 
+    private string $codePostal;
 
-    public function __construct(string $adressePostal, DateTime $dateNaissance,string $email, 
+
+
+    public function __construct(string $rue, DateTime $dateNaissance,string $email, 
                                 string $nom, string $password, string $prenom , string $pays,
-                                Role $role, string $telephone,  string $ville)
+                                Role $role, string $telephone,  string $ville, int $id, string $codePostal)
     {
-      $this->adressePostal = $adressePostal; 
+      $this->rue = $rue; 
       $this->dateNaissance = $dateNaissance; 
       $this->email = $email; 
       $this->nom = $nom; 
@@ -27,6 +30,8 @@ class Utilisateur {
       $this->role = $role; 
       $this->telephone = $telephone; 
       $this->ville = $ville;
+      $this->id = $id;
+      $this->codePostal = $codePostal;
     }
 
 public function getAdressePostal(): string 

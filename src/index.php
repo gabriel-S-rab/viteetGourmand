@@ -1,9 +1,20 @@
 <?php 
 
-require "../src/Controller/UtilisateurController.php"; 
+require __DIR__."/service/AuthService.php";
+require_once __DIR__.'/session.php';
+require __DIR__."/Controller/UtilisateurController.php"; 
 
-if($_POST["newUtilisateur"]){
-$newUtilisateur = new UtilisateurController(); 
-$newUtilisateur->ajouterUtilisateurController();
+if(isset($_POST["newUtilisateur"])){
+    $utilisateurRepository = new UtilisateurRepository();
+    $utilisateurService = new UtilisateurService($utilisateurRepository);
+    $newUtilisateur = new UtilisateurController($utilisateurService); 
+    $newUtilisateur->ajoutUtilisateurController();
 }
-//point d'entré
+
+if(isset($_POST["connexion"])){
+    $utilisateurRepository = new UtilisateurRepository();
+    $authService = new AuthService($utilisateurRepository);
+    $authService->connecter($_POST["email"], $_POST["password"]);
+    header("Location: ../public/login.php");
+}
+?>
